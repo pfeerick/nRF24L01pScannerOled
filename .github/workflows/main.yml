@@ -16,14 +16,12 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.7'
+        uses: actions/setup-python@v1
       - name: Set up PlatformIO
         run: |
           python -m pip install --upgrade pip
           pip install platformio
       - name: Build with PlatformIO
-        run: platformio run $GITHUB_WORKSPACE -e pro8MHzatmega328
+        run: platformio run -d $GITHUB_WORKSPACE -e pro8MHzatmega328

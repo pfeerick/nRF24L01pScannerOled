@@ -8,13 +8,6 @@
 #include "Arduino.h"
 #include "ssdfont.h"
 
-//#define SSD1106 // comment out one or other of these lines so as to leave the definition active for the type of display driver you have
-#define SSD1306 // comment out one or other of these lines so as to leave the definition active for the type of display driver you have
-
-#define SSD1X06_I2C_ADDRESS 0x3C // some modules can be 0x3D - depends on how module's internal SA0 has been wired
-
-#define I2CSPEED 800000L    //normally display communicate on 400kHz. From testing it can handle faster clock up to 800kHz. In case of problems try 400000L
-
 // pixels
 #define SSD1X06_LCDWIDTH  128
 #define SSD1X06_LCDHEIGHT  64

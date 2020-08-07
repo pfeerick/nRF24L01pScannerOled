@@ -1,12 +1,25 @@
 # nRF24L01pScannerOled
-2,4GHz spectral scanner with nRF24L01 and SSD1306/SSD1106 OLED display.  
-Original came from Ceptimus: https://www.rcgroups.com/forums/showthread.php?2777178-Very-cheap-Arduino-based-2-4-GHz-band-monitor
+2.4GHz spectral scanner with nRF24L01 and SSD1306/SSD1106 OLED display.
 
-I made some changes for faster show up of data:
+
+## Usage
+Connection of the three parts to this project couldn't be much simpler. 
+
+![Connection diagram](docs/connection-diagram.png)
+
+After you have connected the Arduino, NRF24L01+ and OLED as shown, make any necessary changes to the code, and upload the project. Instead of an Arduino Nano (as used by the original author, Ceptimus), I used a 3.3v Arduino Pro Mini, so you will need to change that if you are using a Arduino Nano or other board. 
+
+Since I am using what now seems to be the more common SSD1306 (rather than a SSD1106), I have enabled that, as well as set the I2C address and bus speed in the project `platformio.ini`. You should only need to change the bus address if your module's internal SA0 has been wired differently (or the solder jumper changed). Testing showed that the I2C could operate at a higher clock rate of 800kHz, but if you have problems, try the 'normal' speed of  400kHz (`400000L`).
+
+
+## History
+
+The original idea/code is from Ceptimus:
+* https://www.rcgroups.com/forums/showthread.php?2777178-Very-cheap-Arduino-based-2-4-GHz-band-monitor
+
+Benik3 made changes for faster display driving:
 - Asynchronous scan and OLED draw - scanning is made with interrupt
 - Redraw only bytes which really changed from previous draw
 - Function to draw line from array for faster draw of long line
 - Faster I2C clock by default (800kHz)
 - faster SSD1306 OLED clock
-
-Tested with SSD1306, if you will find any errors (e.g. with SSD1106) let me know and I will try to fix it :)

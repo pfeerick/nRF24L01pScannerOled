@@ -1,23 +1,5 @@
-// Rough and ready 2.4 GHz band scanner using nRF24L01+ module with 128x64 graphic OLED display
-//
-// ceptimus.  November 2016.
-// Edited by Benik3 January 2019 - added range select, dynamic displaying and async scanning with timer
-
 #include <Arduino.h>
 #include <SSD1X06.h>
-
-/* nRF24L01+ module connections
-
-   module   Arduino
-   1 GND ---- GND
-   2 VCC ---- 3.3V  Note: 5V on VCC will destroy module (but other pins are 5V tolerant)
-   3 CE ----- D9
-   4 CSN ---- D10
-   5 SCK ---- D13 (SCK)
-   6 MOSI --- D11 (MOSI)
-   7 MISO --- D12 (MISO)
-   8 IRQ ---- not connected
-*/
 
 // Function declarations
 uint8_t _spi_write(uint8_t command);
@@ -32,8 +14,7 @@ uint8_t NRF24L01_ReadReg(uint8_t reg);
 void NRF24L01_SetTxRxMode(uint8_t mode);
 uint8_t NRF24L01_Reset();
 
-#define rstPin 4  //OLED reset pin
-//I2C is "overclocked" to get faster refresh rates. See define in SSD1X06.h
+#define rstPin 4  // OLED reset pin, ignore this if there is none
 
 // the nRF24L01+ can tune to 128 channels with 1 MHz spacing from 2.400 GHz to 2.527 GHz.
 #define CHANNELS 128

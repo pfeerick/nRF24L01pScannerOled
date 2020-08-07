@@ -7,7 +7,7 @@
 
 * Arduino (3.3v Pro Mini is best, but Nano or Uno are fine)
 * NRF24L01+ tranceiver
-* SSD1306 128x64 OLED
+* SSD1306 128x64 OLED (SSD1106 support is present in code, but untested)
 
 Although the NRF24L01+ is a 3.3v part, the IO is 5v tolerant, which is why a 5v Nano or Uno can be used with it. However, it **must** still be powered from 3.3v. 
 

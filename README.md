@@ -7,7 +7,7 @@
 
 * Arduino (3.3v Pro Mini is best, but Nano or Uno are fine)
 * NRF24L01+ tranceiver
-* SSD1306 128x64 OLED (SSD1106 support is present in code, but untested)
+* SSD1306 128x64 OLED (SSD1106 support is present in code, but untested by me)
 
 Although the NRF24L01+ is a 3.3v part, the IO is 5v tolerant, which is why a 5v Nano or Uno can be used with it. However, it **must** still be powered from 3.3v. 
 
@@ -15,6 +15,20 @@ Although the NRF24L01+ is a 3.3v part, the IO is 5v tolerant, which is why a 5v 
 Connection of the three parts to this project couldn't be much simpler.
 
 ![Connection diagram](docs/connection-diagram.png)
+
+The illustrated pins 1-8 of the NRF24L01+ are:
+
+```
+   module   Arduino
+   1 GND ---- GND
+   2 VCC ---- 3.3V 
+   3 CE ----- D9
+   4 CSN ---- D10
+   5 SCK ---- D13 (SCK)
+   6 MOSI --- D11 (MOSI)
+   7 MISO --- D12 (MISO)
+   8 IRQ ---- not connected
+```
 
 After you have connected the Arduino, NRF24L01+ and OLED as shown, make any necessary changes to the code, and upload the project. Instead of an Arduino Nano (as used by the original author, Ceptimus), I used a 3.3v Arduino Pro Mini, so you will need to change that if you are using a Arduino Nano or other board. 
 

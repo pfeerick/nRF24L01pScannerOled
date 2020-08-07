@@ -126,7 +126,7 @@ void SSD1X06::displayString6x8(uint8_t row, uint8_t x, const __FlashStringHelper
   if (rvsField) {
     rvsField = 0x80;
   }
-  uint8_t PROGMEM *p = (uint8_t PROGMEM *)s;
+  uint8_t *p = (uint8_t PROGMEM *)s;
   while (uint8_t c = pgm_read_byte_near(p++)) {
     displayChar6x8(row, x, c ^ rvsField);
     x += 6;

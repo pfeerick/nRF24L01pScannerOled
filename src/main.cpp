@@ -3,7 +3,8 @@
 // ceptimus.  November 2016.
 // Edited by Benik3 January 2019 - added range select, dynamic displaying and async scanning with timer
 
-#include "SSD1X06.h"
+#include <Arduino.h>
+#include <SSD1X06.h>
 
 /* nRF24L01+ module connections
 
@@ -17,6 +18,19 @@
    7 MISO --- D12 (MISO)
    8 IRQ ---- not connected
 */
+
+// Function declarations
+uint8_t _spi_write(uint8_t command);
+void _spi_write_address(uint8_t address, uint8_t data);
+uint8_t _spi_read();
+uint8_t _spi_read_address(uint8_t address);
+uint8_t NRF24L01_WriteReg(uint8_t address, uint8_t data);
+uint8_t NRF24L01_FlushTx();
+uint8_t NRF24L01_FlushRx();
+static uint8_t Strobe(uint8_t state);
+uint8_t NRF24L01_ReadReg(uint8_t reg);
+void NRF24L01_SetTxRxMode(uint8_t mode);
+uint8_t NRF24L01_Reset();
 
 #define rstPin 4  //OLED reset pin
 //I2C is "overclocked" to get faster refresh rates. See define in SSD1X06.h

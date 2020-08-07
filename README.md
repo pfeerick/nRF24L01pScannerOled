@@ -1,6 +1,8 @@
 # nRF24L01pScannerOled
 2.4GHz spectral scanner with nRF24L01 and SSD1306/SSD1106 OLED display.
 
+https://github.com/pfeerick/nRF24L01pScannerOled/workflows/PlatformIO%20CI/badge.svg
+
 ## Required hardware
 
 * Arduino (3.3v Pro Mini is best, but Nano or Uno are fine)
